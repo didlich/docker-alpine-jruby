@@ -5,7 +5,7 @@ MAINTAINER didlich@t-online.de
 
 
 RUN apk update \
-    && apk add curl tar git
+    && apk add curl tar git tzdata
 
 
 # jruby
@@ -18,6 +18,8 @@ RUN mkdir /opt/jruby \
   && rm /tmp/jruby.tar.gz
 
 ENV PATH /opt/jruby/bin:$PATH
+
+RUN cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 
 # skip installing gem documentation
